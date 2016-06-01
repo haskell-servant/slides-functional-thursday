@@ -266,6 +266,7 @@ class: center, middle
 | QueryFlag n :> api        | Bool -> Server api    | /?n                 |
 | ReqBody contentTypes a    | a -> Server api       | request body        |
 | Raw                       | Application           | escape hatch        |
+| ...                       | ...                   | ...                 |
 
 --
 
@@ -292,6 +293,8 @@ using
 - servant-server
 - servant-elm
 - servant-client (for testing)
+
+fixme: try out how long it takes
 
 fixme: write better demo (with servant-swagger)
 
