@@ -1,0 +1,25 @@
+- outline
+- Please, ask questions!
+- Specify APIs at the type level (small example in the slides)
+- write your own servant-docs
+  - Get
+  - paths
+  - :<|>
+- write your own servant-server
+  - small introduction to wai
+  - for the example API
+- QueryParam
+
+- matrix
+
+- All the combinators
+  - from the core
+- all the interpretations
+  - servant-swagger
+  - servant-js
+  - servant-elm
+  - servant-mock
+  - servant-quickcheck
+- demo (with elm)
+
+- the expression problem

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# An Introduction to `servant`
+
+Sönke Hahn
+
+Functional Thursday, 2. 6. 2016
+
+Mozilla Space, Taipei
+
+---
+
+# Agenda
+
+# fixme
+
+---
+
+class: center, middle
+
+# Please, ask questions!
+
+---
+
+# The Idea
+
+Declaring API specifications at the type level, e.g.:
+
+``` haskell
+type MyApi
+  = "api" :>
+    ("item" :> Get Item :<|>
+     "item" :> "search" :> QueryParam "query" String :> Get [Item])
+```
+
+---
+
+# Write Your Own `servant-docs`!
+
+- bla
+
+---
+
+fixme
+
+- Specify APIs at the type level (small example in the slides)
+- write your own servant-docs
+  - Get
+  - paths
+  - :<|>
+- write your own servant-server
+  - small introduction to wai
+  - for the example API
+- QueryParam
+
+- matrix
+
+- All the combinators
+  - from the core
+- all the interpretations
+  - servant-swagger
+  - servant-js
+  - servant-elm
+  - servant-mock
+  - servant-quickcheck
+- demo (with elm)
+
+- the expression problem
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
