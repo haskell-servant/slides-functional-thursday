@@ -1,0 +1,14 @@
+dependencies:
+  - base
+  - wai
+  - http-types
+  - warp
+  - bytestring
+  - string-conversions
+  - aeson
+  - servant
+  - servant-server
+
+executables:
+  server:
+    main: Main.hs
