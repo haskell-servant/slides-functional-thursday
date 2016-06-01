@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>An Introduction to servant</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -17,6 +17,7 @@
 
       table, th, td {
         border: 1px solid black;
+        padding: 3px;
         font-family: monospace;
       }
       table {
@@ -253,7 +254,18 @@ class: center, middle
 
 # Combinators
 
-fixme: list
+| api                       | Server api            | meaning             |
+| ------------------------- | --------------------- | ------------------- |
+| Get '[JSON] result        | Handler result        | GET method          |
+| Post '[JSON] result       | Handler result        | POST method         |
+| path :> api               | Server api            | /path               |
+| Capture n a :> api        | a -> Server api       | /:n/                |
+| Header n a :> api         | Maybe a -> Server api | request header      |
+| QueryParam n a :> api     | Maybe a -> Server api | /?n=foo             |
+| QueryParams n a :> api    | [a] -> Server api     | /?n=foo&n=bar       |
+| QueryFlag n :> api        | Bool -> Server api    | /?n                 |
+| ReqBody contentTypes a    | a -> Server api       | request body        |
+| Raw                       | Application           | escape hatch        |
 
 fixme: we don't have separate packages
 
