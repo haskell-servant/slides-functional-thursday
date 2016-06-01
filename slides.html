@@ -14,6 +14,15 @@
         font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+      table, th, td {
+        border: 1px solid black;
+        font-family: monospace;
+      }
+      table {
+        border-collapse: collapse;
+      }
+
     </style>
   </head>
   <body>
@@ -58,23 +67,182 @@ type MyApi
 
 # Write Your Own `servant-docs`!
 
-- bla
+- `Get`
+- paths
+- `:<|>`
+
+---
+
+# Write Your Own `servant-server`!
+
+--
+
+But first... `wai`!
+
+---
+
+# Introduction to `wai`
+
+`wai` (Web Application Interface)
+
+- Low-level API for HTTP requests and responses
+- Meant to be the common basis for web applications in Haskell
+- Has a thriving ecosystem for applications, routing, servers, middlewares, etc.
+
+--
+
+``` haskell
+import Network.Wai
+
+type Application =
+  Request -> (Response -> IO ResponseReceived) -> IO ResponseReceived
+```
+
+--
+
+``` haskell
+requestMethod :: Request -> Method
+pathInfo :: Request -> [Text]
+queryString :: Request -> Query
+```
+
+--
+
+``` haskell
+import Network.Wai.Handler.Warp
+
+run :: Port -> Application -> IO ()
+```
+
+--
+
+`servant-server` is built on top of `wai`.
+
+---
+
+# Write Your Own `servant-server`!
+
+- `Get`
+- paths
+- `:<|>`
+--
+
+- QueryParam
+
+---
+
+# Combinators
+
+<table>
+  <tr>
+    <th style="opacity: 0.0;"> HasServer </th>
+    <th> Get </th>
+    <th> path :> api </th>
+    <th> :<|> </th>
+    <th> QueryParam name param :> api </th>
+  </tr>
+</table>
+
+---
+
+# Combinators & Interpretations
+
+<table>
+  <tr>
+    <th> </th>
+    <th> Get </th>
+    <th> path :> api </th>
+    <th> :<|> </th>
+    <th> QueryParam name param :> api </th>
+  </tr>
+  <tr>
+    <th> HasDocs </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
+  </tr>
+  <tr>
+    <th> HasServer </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
+  </tr>
+</table>
+
+---
+
+# Combinators & Interpretations
+
+<table>
+  <tr>
+    <th> </th>
+    <th> Get </th>
+    <th> path :> api </th>
+    <th> :<|> </th>
+    <th> QueryParam name param :> api </th>
+  </tr>
+  <tr>
+    <th> HasDocs </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+  </tr>
+  <tr>
+    <th> HasServer </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+  </tr>
+</table>
+
+---
+
+# Combinators & Interpretations
+
+<table>
+  <tr>
+    <th> </th>
+    <th> Get </th>
+    <th> path :> api </th>
+    <th> :<|> </th>
+    <th> QueryParam name param :> api </th>
+    <th> ... </th>
+  </tr>
+  <tr>
+    <th> HasDocs </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> </th>
+  </tr>
+  <tr>
+    <th> HasServer </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> ✓ </th>
+    <th> </th>
+  </tr>
+  <tr>
+    <th> ... </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
+  </tr>
+</table>
+
+Extensibility: We can write new combinators and new interpretations.
 
 ---
 
 fixme
-
-- Specify APIs at the type level (small example in the slides)
-- write your own servant-docs
-  - Get
-  - paths
-  - :<|>
-- write your own servant-server
-  - small introduction to wai
-  - for the example API
-- QueryParam
-
-- matrix
 
 - All the combinators
   - from the core
