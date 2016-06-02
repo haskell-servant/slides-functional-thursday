@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE PolyKinds #-}
 {-# LANGUAGE ScopedTypeVariables #-}
@@ -7,6 +8,7 @@
 
 module SimpleServant where
 
+import           Control.Monad
 import           Data.Aeson
 import           Data.Proxy
 import           Data.String.Conversions
@@ -14,6 +16,7 @@ import           Data.Typeable
 import           GHC.TypeLits
 import           Network.HTTP.Types
 import           Network.Wai
+import           Text.Read
 
 data Get (a :: *)
 
@@ -50,7 +53,7 @@ instance
   docsLines = error "NYI: :<|>"
 
 instance
-  HasDocs (QueryParam name param) where
+  HasDocs (QueryParam name param :> api) where
 
   docsLines = error "NYI: QueryParam"
 
@@ -91,7 +94,7 @@ instance
   route = error "NYI: :<|>"
 
 instance
-  HasServer (QueryParam name param) where
+  HasServer (QueryParam name param :> api) where
 
-  type Server (QueryParam name param) = NYI
+  type Server (QueryParam name param :> api) = NYI
   route = error "NYI: QueryParam"
