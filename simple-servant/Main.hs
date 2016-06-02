@@ -14,6 +14,7 @@ import           SimpleServant
 main :: IO ()
 main = do
   putStrLn $ docs myApi
+  putStrLn "starting server..."
   Warp.run 8000 $ serve myApi server
 
 type MyApi =
