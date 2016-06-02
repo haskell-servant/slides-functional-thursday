@@ -1,10 +1,12 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE ViewPatterns #-}
 
 module Main where
 
 import           Data.Aeson
+import           Data.Maybe
 import           Data.Proxy
 import           GHC.Generics
 import           Network.Wai.Handler.Warp as Warp
