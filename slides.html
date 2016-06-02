@@ -56,71 +56,15 @@ class: center, middle
 
 ---
 
-# The Idea
-
-Declaring API specifications at the type level, e.g.:
-
-``` haskell
-type MyApi
-  = "api" :>
-    ("item" :> Get Item :<|>
-     "item" :> "search" :> QueryParam "query" String :> Get [Item])
-```
-
----
-
 # Write Your Own `servant-docs`!
+
+Starting small!
+
+--
 
 - `Get`
 - paths
 - `:<|>`
-
----
-
-# Write Your Own `servant-server`!
-
---
-
-But first... `wai`!
-
----
-
-# Introduction to `wai`
-
-`wai` (Web Application Interface)
-
-- Low-level API for HTTP requests and responses
-- Meant to be the common basis for web applications in Haskell
-- Has a thriving ecosystem for applications, routing, servers, middlewares, etc.
-
---
-
-``` haskell
-import Network.Wai
-
-type Application =
-  Request -> (Response -> IO ResponseReceived) -> IO ResponseReceived
-```
-
---
-
-``` haskell
-requestMethod :: Request -> Method
-pathInfo :: Request -> [Text]
-queryString :: Request -> Query
-```
-
---
-
-``` haskell
-import Network.Wai.Handler.Warp
-
-run :: Port -> Application -> IO ()
-```
-
---
-
-`servant-server` is built on top of `wai`.
 
 ---
 
@@ -303,6 +247,8 @@ fixme: write better demo (with servant-swagger)
 class: center, middle
 
 # Thanks for your attention!
+
+Getting started: [github.com/haskell-servant/example-servant-minimal](https://github.com/haskell-servant/example-servant-minimal)
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
