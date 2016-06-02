@@ -8,6 +8,11 @@ dependencies:
   - aeson
   - servant
   - servant-server
+  - servant-docs
+  - servant-swagger
+  - directory
+  - process
+  - transformers
 
 executables:
   server:

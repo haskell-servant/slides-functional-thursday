@@ -19,4 +19,9 @@ executable server
     , aeson
     , servant
     , servant-server
+    , servant-docs
+    , servant-swagger
+    , directory
+    , process
+    , transformers
   default-language: Haskell2010
